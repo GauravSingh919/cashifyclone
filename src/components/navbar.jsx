@@ -47,7 +47,7 @@ export default function Example() {
                     Home
                   </a>
                   <a
-                    href="/cashifyclone/#forms"
+                    href="/#forms"
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
                     Forms
