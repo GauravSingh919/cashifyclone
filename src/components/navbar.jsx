@@ -1,15 +1,18 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 // import { PlusIcon } from '@heroicons/react/20/solid'
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className=" bg-gradient-to-r from-gray-950 to-gray-900 shadow  z-50 top-0 fixed w-full">
+    <Disclosure
+      as="nav"
+      className=" bg-gradient-to-r from-gray-950 to-gray-900 shadow  z-50 top-0 fixed w-full"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,9 +39,9 @@ export default function Example() {
                 </div>
                 <div className="hidden md:ml-6 md:flex md:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  
+
                   <a
-                    href="/cashifyclone"
+                    href="/cashifyclone/"
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
                     Home
@@ -65,7 +68,7 @@ export default function Example() {
                     href="#locations"
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
-                   Store Locations
+                    Store Locations
                   </a>
                 </div>
               </div>
@@ -117,8 +120,8 @@ export default function Example() {
                             <a
                               href="#"
                               className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Your Profile
@@ -130,8 +133,8 @@ export default function Example() {
                             <a
                               href="#"
                               className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Settings
@@ -143,8 +146,8 @@ export default function Example() {
                             <a
                               href="#"
                               className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Sign out
@@ -164,7 +167,7 @@ export default function Example() {
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <Disclosure.Button
                 as="a"
-                href="#home"
+                href="/cashifyclone/"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Home
@@ -208,8 +211,12 @@ export default function Example() {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">Tom Cook</div>
-                  <div className="text-sm font-medium text-gray-500">tom@example.com</div>
+                  <div className="text-base font-medium text-gray-800">
+                    Tom Cook
+                  </div>
+                  <div className="text-sm font-medium text-gray-500">
+                    tom@example.com
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -248,5 +255,5 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
