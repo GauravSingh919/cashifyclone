@@ -47,7 +47,7 @@ export default function Example() {
                     Home
                   </a>
                   <a
-                    href="#forms"
+                    href="/cashifyclone/#forms"
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
                     Forms
@@ -174,7 +174,7 @@ export default function Example() {
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#forms"
+                href="/cashifyclone/#forms"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Forms

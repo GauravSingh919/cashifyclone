@@ -10,7 +10,7 @@ function App({ Router }) {
       <Router>
         <Routes>
           <Route path="/cashifyclone" element={<User />} />
-          <Route path="/admin/">
+          <Route path="/cashifyclone/admin/">
             <Route index element={<Admin />} />
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
