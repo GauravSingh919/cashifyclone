@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cashifyclone/static/css/main.f7736789.css",
-    "main.js": "/cashifyclone/static/js/main.727d1fa3.js",
+    "main.js": "/cashifyclone/static/js/main.808e671d.js",
     "index.html": "/cashifyclone/index.html",
     "main.f7736789.css.map": "/cashifyclone/static/css/main.f7736789.css.map",
-    "main.727d1fa3.js.map": "/cashifyclone/static/js/main.727d1fa3.js.map"
+    "main.808e671d.js.map": "/cashifyclone/static/js/main.808e671d.js.map"
   },
   "entrypoints": [
     "static/css/main.f7736789.css",
-    "static/js/main.727d1fa3.js"
+    "static/js/main.808e671d.js"
   ]
 }
