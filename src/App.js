@@ -9,7 +9,7 @@ function App({ Router }) {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<User />} />
+          <Route path="/cashifyclone" element={<User />} />
           <Route path="/admin/">
             <Route index element={<Admin />} />
             <Route path="dashboard" element={<Dashboard />} />
