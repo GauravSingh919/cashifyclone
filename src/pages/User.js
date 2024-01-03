@@ -19,7 +19,7 @@ const User = () => {
       <Carousel slides={slides} />
       <MultiForm />
       <Sell />
-      <Forms />
+      {/* <Forms /> */}
       <Faqs />
       <Reviews />
       <Location />

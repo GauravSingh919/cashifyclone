@@ -38,7 +38,7 @@ export default function Example() {
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   
                   <a
-                    href="/"
+                    href="/cashifyclone"
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
                     Home
