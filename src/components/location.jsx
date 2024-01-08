@@ -4,7 +4,7 @@ import React from "react";
 const location = () => {
   return (
     <div className="my-5" id="locations">
-      <div className="text-indigo-800 text-3xl font-bold text-center pt-20">
+      <div className="text-indigo-800 text-3xl font-bold text-center pt-10 md:pt-20">
         Our Store Locations
       </div>
       <div className="container mx-auto px-3">

@@ -1,5 +1,6 @@
 import React from "react";
 export function AccessoriesForm() {
+  
   return (
     <div className="px-2 md:px-0">
         <fieldset>
@@ -15,8 +16,6 @@ export function AccessoriesForm() {
                 id="ogbox"
                 name="push-notifications"
                 type="checkbox"
-                required
-                autoFocus
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
               <label
@@ -31,7 +30,6 @@ export function AccessoriesForm() {
                 id="ogheadset"
                 name="push-notifications"
                 type="checkbox"
-                required
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
               <label
@@ -46,7 +44,7 @@ export function AccessoriesForm() {
                 id="power"
                 name="push-notifications"
                 type="checkbox"
-                required
+                
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
               <label
@@ -54,6 +52,20 @@ export function AccessoriesForm() {
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Powercable + Adapter
+              </label>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <input
+                id="none"
+                name="push-notifications"
+                type="checkbox"
+                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              />
+              <label
+                htmlFor="none"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                None of the Above
               </label>
             </div>
           </div>

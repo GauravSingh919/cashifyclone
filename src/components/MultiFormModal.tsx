@@ -8,7 +8,7 @@ import { AccessoriesForm } from "./AccessoriesForm.jsx";
 import { UserForm } from "./UserForm.jsx";
 import Steps from "./Steps.jsx";
 
-function MultiForm() {
+function MultiFormModal() {
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
     useMultistepForm([
       <ConditionForm />,
@@ -27,12 +27,8 @@ function MultiForm() {
   return (
     <div className="flex flex-col container mx-auto">
       <div className="my-10">
-        <div className="flex flex-col md:flex-row px-3">
-          {" "}
-          <div className="md:basis-2/4">
-            <Steps />
-          </div>{" "}
-          <div className="md:basis-2/4">
+        <div className="flex flex-col  px-3">
+          <div>
             <div className="flex flex-col  items-center ">
               <div className="flex">
                 <div className="font-bold  md:text-2xl text-gray-500  mt-3 md:mt-10">
@@ -80,4 +76,4 @@ function MultiForm() {
     </div>
   );
 }
-export default MultiForm;
+export default MultiFormModal;

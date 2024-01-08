@@ -42,17 +42,18 @@ const Faqs = () => {
   };
 
   return (
+      <div className="container mx-auto px-5">
     <div className="my-5" id="faqs">
-      <div className="text-indigo-800 text-3xl font-bold text-center pt-20">
+      <div className="text-indigo-800 text-3xl font-bold text-center pt-10 md:pt-20">
         Frequently Asked Questions
       </div>
-      <div className="flex flex-col lg:items-center py-5 ">
+      <div className=" flex flex-col lg:items-center py-5 ">
         <div className=" ">
           {accordionData.map((item, index) => (
             <div key={index}>
-              <div className="py-2 transition-all ease-in duration-500">
+              <div className="py-2">
                 <div
-                  className="question  flex items-center justify-between text-lg shadow bg-white border p-3 cursor-pointer w-full lg:w-[60rem]"
+                  className="question  flex items-center justify-between md:text-lg shadow bg-white border p-3 cursor-pointer w-full lg:w-[60rem]"
                   onClick={() => toggleAccordion(index)}
                 >
                   <div>{item.question}</div>
@@ -64,7 +65,7 @@ const Faqs = () => {
                 </div>
 
                 {openIndex === index && (
-                  <div className="answer relative flex items-center transition-all duration-700 ease-in-out text-lg shadow bg-white border w-full lg:w-[60rem] p-3">
+                  <div className="answer relative flex items-center transition-all duration-700 ease-in-out md:text-lg shadow bg-white border w-full lg:w-[60rem] p-3">
                     <div>{item.answer}</div>
                   </div>
                 )}
@@ -72,6 +73,7 @@ const Faqs = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

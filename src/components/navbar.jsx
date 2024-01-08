@@ -41,7 +41,7 @@ export default function Example() {
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
 
                   <a
-                    href="/cashifyclone/"
+                    href="/"
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
                     Home
@@ -167,14 +167,14 @@ export default function Example() {
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <Disclosure.Button
                 as="a"
-                href="/cashifyclone/"
+                href="/"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Home
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="/cashifyclone/#forms"
+                href="#forms"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Forms

@@ -4,12 +4,12 @@ const reviews = () => {
   return (
     <div className="my-5" id="reviews">
       <div className="container mx-auto px-3">
-        <div className="text-indigo-800 text-3xl font-bold text-center pt-20">
+        <div className="text-indigo-800 text-3xl font-bold text-center pt-10 md:pt-20">
           Reviews
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-10 py-10">
           <div>
-            <div className="flex justify-center rounded-md border shadow-xl py-5">
+            <div className="flex justify-center rounded-md border shadow-xl p-5">
               <div>
                 <div className="flex justify-center">
                   <img
@@ -43,7 +43,7 @@ const reviews = () => {
             </div>
           </div>
           <div>
-            <div className="flex   justify-center rounded-md  border  shadow-xl    py-5">
+            <div className="flex   justify-center rounded-md  border  shadow-xl    p-5">
               <div>
                 <div className="flex justify-center">
                   <img
@@ -77,7 +77,7 @@ const reviews = () => {
             </div>
           </div>
           <div>
-            <div className="flex   justify-center rounded-md  border  shadow-xl    py-5">
+            <div className="flex   justify-center rounded-md  border  shadow-xl    p-5">
               <div>
                 <div className="flex justify-center">
                   <img
@@ -111,7 +111,7 @@ const reviews = () => {
             </div>
           </div>
           <div className="">
-            <div className="flex   justify-center rounded-md  border  shadow-xl    py-5">
+            <div className="flex   justify-center rounded-md  border  shadow-xl    p-5">
               <div>
                 <div className="flex justify-center">
                   <img

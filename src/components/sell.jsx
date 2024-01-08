@@ -36,14 +36,14 @@ const sell = () => {
         </div>
       </div>
 
-      <div className="block md:hidden my-10">
-        <div className="py-10 bg-blue-300 w-screen">
+      <div className="flex justify-center md:hidden my-10 w-screen">
+        <div className="p-16 bg-blue-300 ">
           <div className="mobile12">
             <div >
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/quick_and_easy_quotes_sell.webp"
                 alt=""
-                className="pl-20"
+                className="pl"
               />
               <div className="my-5">
                 <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />
@@ -53,7 +53,7 @@ const sell = () => {
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/assured_pickup_24hrs_sell.webp"
                 alt="mobile13"
-                className="pl-20"
+                className=""
               />
               <div className="my-5">
                 <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />
@@ -63,7 +63,7 @@ const sell = () => {
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/instant_cash_sell.webp"
                 alt="mobile14"
-                className="pl-20"
+                className=""
               />
             </div>
           </div>
