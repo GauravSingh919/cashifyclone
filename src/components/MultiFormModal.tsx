@@ -8,7 +8,7 @@ import { AccessoriesForm } from "./AccessoriesForm.jsx";
 import { UserForm } from "./UserForm.jsx";
 import Steps from "./Steps.jsx";
 
-function MultiFormModal() {
+function MultiFormModal({ file, closeModal }) {
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
     useMultistepForm([
       <ConditionForm />,
@@ -29,6 +29,8 @@ function MultiFormModal() {
       <div className="my-10">
         <div className="flex flex-col  px-3">
           <div>
+            <button onClick={closeModal}>Close MultiFormModal</button>
+
             <div className="flex flex-col  items-center ">
               <div className="flex">
                 <div className="font-bold  md:text-2xl text-gray-500  mt-3 md:mt-10">

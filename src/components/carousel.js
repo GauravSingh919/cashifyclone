@@ -23,12 +23,12 @@ export default function Carousel({ slides }) {
   }, [current]);
 
   return (
-    <div>
+    <div className="">
       <Navbar />
 
-      <div className="overflow-hidden relative pt-16 md:pt-0" id="#home">
+      <div className="overflow-hidden relative pt-16 md:pt-0 " id="home">
         <div
-          className={`flex transition ease-out duration-40`}
+          className={`flex transition ease-out duration-40 animate-none`}
           style={{
             transform: `translateX(-${current * 100}%)`,
           }}
@@ -38,7 +38,7 @@ export default function Carousel({ slides }) {
           ))}
         </div>
 
-        <div className="hidden md:flex absolute top-0 h-full w-full justify-between items-center  text-white px-4 md:px-10  md:text-3xl pt-10">
+        <div className="hidden md:flex absolute top-0 h-full w-full justify-between items-center  text-white px-4 md:px-10  md:text-3xl pt-10 animate-none">
           <button onClick={previousSlide}>
             <IoIosArrowBack className="shadow-xl text-white rounded-full h-16" />
           </button>

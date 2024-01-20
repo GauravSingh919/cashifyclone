@@ -2,4 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.project{
+    font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+  }
+  
+  .map {
+    background-image: url('https://source.unsplash.com/dWwZBcjw3GE');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 90vh;
+  }
 
+  .faq {
+    background-image: url('https://source.unsplash.com/oZuBNC-6E2s');
+    background-size: cover; /* Adjust based on your preference */
+    background-position: center; /* Adjust based on your preference */
+    background-repeat: no-repeat; 
+    height: 80vh;
+  }

@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
+import DashboardModal from "./DashboardModal.jsx";
 import {
   Bars3CenterLeftIcon,
   BellIcon,
@@ -24,7 +25,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
+  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
   { name: "History", href: "#", icon: ClockIcon, current: false },
   { name: "Balances", href: "#", icon: ScaleIcon, current: false },
   { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
@@ -36,10 +37,7 @@ const secondaryNavigation = [
   { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
   { name: "Privacy", href: "#", icon: ShieldCheckIcon },
 ];
-const cards = [
-  { name: "Account balance", href: "#", icon: ScaleIcon, amount: "$30,659.45" },
-  // More items...
-];
+
 const peoples = [
   {
     id: 1,
@@ -53,31 +51,24 @@ const peoples = [
     date: "July 11, 2020",
     datetime: "2020-07-11",
   },
-  // More transactions...
 ];
 const statusStyles = {
   success: "bg-green-100 text-green-800",
   processing: "bg-yellow-100 text-yellow-800",
   failed: "bg-gray-100 text-gray-800",
 };
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
@@ -133,11 +124,13 @@ export default function Example() {
                     </div>
                   </Transition.Child>
                   <div className="flex flex-shrink-0 items-center px-4">
-                    <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
-                      alt="Easywire logo"
-                    />
+                    <a href="/admin">
+                      <img
+                        className="h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
+                        alt="Easywire logo"
+                      />
+                    </a>
                   </div>
                   <nav
                     className="mt-5 h-full flex-shrink-0 divide-y divide-cyan-800 overflow-y-auto"
@@ -196,11 +189,13 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex flex-grow flex-col overflow-y-auto bg-cyan-700 pb-4 pt-5">
             <div className="flex flex-shrink-0 items-center px-4">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
-                alt="Easywire logo"
-              />
+              <a href="/admin">
+                <img
+                  className="h-8 w-auto"
+                  src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
+                  alt="Easywire logo"
+                />
+              </a>
             </div>
             <nav
               className="mt-5 flex flex-1 flex-col divide-y divide-cyan-800 overflow-y-auto"
@@ -338,7 +333,7 @@ export default function Example() {
                           </a>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a
                             href="#"
@@ -350,11 +345,11 @@ export default function Example() {
                             Settings
                           </a>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/admin"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -391,7 +386,7 @@ export default function Example() {
                             alt=""
                           />
                           <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:leading-9">
-                            Good morning, Emilia Birch
+                            Good morning
                           </h1>
                         </div>
                         <dl className="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
@@ -415,20 +410,6 @@ export default function Example() {
                       </div>
                     </div>
                   </div>
-                  {/* <div className="mt-6 flex space-x-3 md:ml-4 md:mt-0">
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                    >
-                      Add money
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
-                    >
-                      Send money
-                    </button>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -438,7 +419,6 @@ export default function Example() {
                 Recent activity
               </h2>
 
-              {/* Activity list (smallest breakpoint only) */}
               <div className="shadow sm:hidden">
                 <ul
                   role="list"
@@ -456,7 +436,6 @@ export default function Example() {
                               className="h-5 w-5 flex-shrink-0 text-gray-400"
                               aria-hidden="true"
                             />
-                            {/* <DevicePhoneMobileIcon /> */}
                             <span className="flex flex-col truncate text-sm text-gray-500">
                               <span className="truncate">{people.name}</span>
                               <span>
@@ -577,7 +556,7 @@ export default function Example() {
                                 </div>
                               </td>
                               <td className="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500">
-                                <span className="font-medium text-gray-900">
+                                <span className="font-medium text-gray-900 pr-1">
                                   {people.amount}
                                 </span>
                                 {people.currency}
@@ -597,16 +576,20 @@ export default function Example() {
                                   {people.date}
                                 </time>
                               </td>
-                              <td className="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500 cursor-pointer">
+                              <td
+                                className="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500 cursor-pointer"
+                                onClick={toggleModal}
+                              >
                                 View
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500 cursor-pointer">
-                                Edit
                               </td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
+                      <DashboardModal
+                        isOpen={isModalOpen}
+                        onClose={toggleModal}
+                      />
                       {/* Pagination */}
                       <nav
                         className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"

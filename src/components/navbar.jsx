@@ -11,7 +11,7 @@ export default function Example() {
   return (
     <Disclosure
       as="nav"
-      className=" bg-gradient-to-r from-gray-950 to-gray-900 shadow  z-50 top-0 fixed w-full"
+      className=" bg-gradient-to-r via-gray-950 from-black to-blue-900 shadow  z-50 top-0 fixed w-full"
     >
       {({ open }) => (
         <>
@@ -69,6 +69,12 @@ export default function Example() {
                     className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
                   >
                     Store Locations
+                  </a>
+                  <a
+                    href="#news"
+                    className="inline-flex hover:border-b-2 hover:border-indigo-500 items-center px-1 pt-1 text-sm font-medium text-white"
+                  >
+                    News Letters
                   </a>
                 </div>
               </div>
@@ -199,6 +205,13 @@ export default function Example() {
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Store Locations
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="#news"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+              >
+                News Letters
               </Disclosure.Button>
             </div>
             <div className="border-t border-gray-200 pb-3 pt-4">

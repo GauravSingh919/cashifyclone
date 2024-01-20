@@ -6,6 +6,7 @@ import { StorageForm } from "./StorageForm.jsx";
 import { OperationalForm } from "./Operational.jsx";
 import { AccessoriesForm } from "./AccessoriesForm.jsx";
 import { UserForm } from "./UserForm.jsx";
+import { PriceForm } from "./PriceForm.jsx";
 import Steps from "./Steps.jsx";
 
 function MultiForm() {
@@ -17,6 +18,7 @@ function MultiForm() {
       <OperationalForm />,
       <AccessoriesForm />,
       <UserForm />,
+      <PriceForm />,
     ]);
 
   function onSubmit(e: FormEvent) {
@@ -25,14 +27,14 @@ function MultiForm() {
   }
 
   return (
-    <div className="flex flex-col container mx-auto">
-      <div className="my-10">
+    <div className="bg-gradient-to-r from-black to-gray-800 p-10 md:p-0">
+      <div className="flex flex-col container mx-auto lg:p-7" id="forms">
         <div className="flex flex-col md:flex-row px-3">
           {" "}
-          <div className="md:basis-2/4">
+          <div className="md:basis-2/4 ">
             <Steps />
           </div>{" "}
-          <div className="md:basis-2/4">
+          <div className="md:basis-2/4 md:mt-10">
             <div className="flex flex-col  items-center ">
               <div className="flex">
                 <div className="font-bold  md:text-2xl text-gray-500  mt-3 md:mt-10">

@@ -5,7 +5,7 @@ import React from "react";
 const sell = () => {
   return (
     <div>
-      <div className="lg:flex items-center lg:my-10">
+      <div className="lg:flex items-center ">
         <div className="lg:py-10 bg-blue-300 w-screen">
           <div className="flex justify-center gap-x-10 lg:gap-x-32">
             <div className="hidden lg:flex px-5">
@@ -36,14 +36,14 @@ const sell = () => {
         </div>
       </div>
 
-      <div className="flex justify-center md:hidden my-10 w-screen">
+      <div className="flex justify-center md:hidden  w-screen">
         <div className="p-16 bg-blue-300 ">
           <div className="mobile12">
             <div >
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/quick_and_easy_quotes_sell.webp"
                 alt=""
-                className="pl"
+                className=""
               />
               <div className="my-5">
                 <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />

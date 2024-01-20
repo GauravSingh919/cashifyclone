@@ -1,8 +1,8 @@
 // SelectDevice.js
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import Modal from "./Modal";
-
-const SelectDevice = () => {
+import "animate.css";
+const SelectDevice = ({onClick}) => {
   const [showiPhoneModal, setShowiPhoneModal] = useState(false);
   const [showiPadModal, setShowiPadModal] = useState(false);
   const [showAppleWatchModal, setShowAppleWatchModal] = useState(false);
@@ -17,7 +17,7 @@ const SelectDevice = () => {
   const closeAppleWatchModal = () => setShowAppleWatchModal(false);
 
   return (
-    <div className="my-10">
+    <div className="my-10" onClick={onClick}>
       <div className="container mx-auto">
         <div className="text-blue-800 font-bold lg:text-[40px]  text-center mb-10">
           SELECT A PRODUCT
@@ -32,7 +32,7 @@ const SelectDevice = () => {
             <img src="/product/ipad_1.jpg" alt="iPad" className="" />
           </div>
           <div onClick={openAppleWatchModal} className="cursor-pointer">
-            Watch
+            Apple Watch
             <img src="/product/iwatch_1.jpg" alt="applewatch" />
           </div>
 

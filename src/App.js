@@ -12,10 +12,18 @@ function App({}) {
       <Router>
         <Routes>
           <Route path="/" element={<User />} />
-          <Route path="/admin">
-            <Route index element={<Admin />} />
-            <Route path="dashboard" element={<Dashboard />} />
-          </Route>
+          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/admin/*"
+            element={
+              <>
+                <Dashboard />
+                <Routes>
+                
+                </Routes>
+              </>
+            }
+          />
         </Routes>
       </Router>
     </div>

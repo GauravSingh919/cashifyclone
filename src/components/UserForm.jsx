@@ -35,7 +35,7 @@ export function UserForm() {
               placeholder="Enter a name"
               required
               autoFocus
-              className="w-full border-gray-100 text-black focus:ring-indigo-600 border rounded px-2"
+              className="w-full border-gray-100 text-black outline-none ring-1 py-2 focus:ring-indigo-600 border rounded px-2"
             />
           </div>
           <div className="flex flex-col  ">
@@ -52,7 +52,7 @@ export function UserForm() {
               placeholder="Enter a email address"
               required
               autoFocus
-              className="w-full border-gray-100 text-black focus:ring-indigo-600 border rounded px-2"
+              className="w-full border-gray-100 text-black outline-none ring-1 py-2 focus:ring-indigo-600 border rounded px-2"
             />
           </div>
           <div className="flex flex-col  ">
@@ -71,7 +71,7 @@ export function UserForm() {
               placeholder="Enter a phone number"
               required
               autoFocus
-              className="w-full border-gray-100 text-black focus:ring-indigo-600 border rounded px-2"
+              className="w-full border-gray-100 text-black outline-none py-2 ring-1 focus:ring-indigo-600 border rounded px-2"
             />
           </div>
         </div>
