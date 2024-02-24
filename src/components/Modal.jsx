@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import MultiFormModal from "./MultiFormModal.tsx";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { IoLogoApple } from "react-icons/io";
-const Modal = ({ product, showModal, closeModal, placeholder }) => {
-
+const Modal = ({ product, showModal, closeModal, placeholder , images , title , size}) => {
   useEffect(() => {
     const originalOverflowStyle = document.body.style.overflow;
     if (showModal) {
@@ -18,36 +17,15 @@ const Modal = ({ product, showModal, closeModal, placeholder }) => {
   }, [showModal]);
 
   const files = [
-    {
-      title: "iPhone 16 Pro Max",
-      size: "256 GB",
-      source: "/product/phone_1.jpg",
-    },
-    {
-      title: "iPhone 16 Pro Max",
-      size: "256 GB",
-      source: "/product/phone_1.jpg",
-    },
-    {
-      title: "iPhone 16 Pro Max",
-      size: "256 GB",
-      source: "/product/phone_1.jpg",
-    },
-    {
-      title: "iPhone 16 Pro Max",
-      size: "256 GB",
-      source: "/product/phone_1.jpg",
-    },
-    {
-      title: "iPhone 16 Pro Max",
-      size: "256 GB",
-      source: "/product/phone_1.jpg",
-    },
-    {
-      title: "iPhone 16 Pro Max",
-      size: "256 GB",
-      source: "/product/phone_1.jpg",
-    },
+{
+  id: 1,
+},
+{
+  id: 2,
+},
+{
+  id: 3,
+}
     // More files...
   ];
   const [selectedFile, setSelectedFile] = useState(null);
@@ -108,12 +86,17 @@ const Modal = ({ product, showModal, closeModal, placeholder }) => {
                       <div
                         className="aspect-h-7 aspect-w-10 overflow-hidden rounded-lg bg-gray-100 hover:bg-white hover:text-black hover:shadow-md transition duration-300"
                         onClick={() => handleFileClick(file)}
+                        
                       >
+                        <div className="sr-only">
+                          {file.id}
+                        </div>
                         <img
-                          src={file.source}
-                          alt=""
+                          src={images}
+                          alt="Images"
                           className="pointer-events-none object-cover w-full h-full"
                         />
+
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                           <button type="button" className="focus:outline-none">
                             <div className="bg-black font-medium text-sm text-white px-2 py-1 rounded-lg">
@@ -123,10 +106,10 @@ const Modal = ({ product, showModal, closeModal, placeholder }) => {
                         </div>
                       </div>
                       <p className="mt-2 block truncate text-sm font-medium text-gray-900">
-                        {file.title}
+                        {title}
                       </p>
                       <p className="block text-sm font-medium text-gray-500">
-                        {file.size}
+                        {size}
                       </p>
                     </li>
                   ))}

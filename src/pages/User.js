@@ -3,7 +3,6 @@ import Carousel from "../components/carousel.js";
 import MultiForm from "../components/MultiForm.tsx";
 import Sell from "../components/sell.jsx";
 import Select from "../components/SelectDevice.jsx";
-// import Forms from "../components/forms.jsx";
 import Faqs from "../components/faqs.jsx";
 import Reviews from "../components/reviews.jsx";
 import Location from "../components/location.jsx";

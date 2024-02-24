@@ -1,8 +1,8 @@
 // SelectDevice.js
-import React, { useState , useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 import "animate.css";
-const SelectDevice = ({onClick}) => {
+const SelectDevice = ({ onClick }) => {
   const [showiPhoneModal, setShowiPhoneModal] = useState(false);
   const [showiPadModal, setShowiPadModal] = useState(false);
   const [showAppleWatchModal, setShowAppleWatchModal] = useState(false);
@@ -15,6 +15,42 @@ const SelectDevice = ({onClick}) => {
 
   const openAppleWatchModal = () => setShowAppleWatchModal(true);
   const closeAppleWatchModal = () => setShowAppleWatchModal(false);
+
+  const iPhoneImage = "/product/phone_1.jpg";
+  const iPadImage = "/product/ipad_1.jpg";
+  const appleWatchImage = "/product/iwatch_1.jpg";
+
+  const iPhoneTitles = [
+    "Title 1",
+    "Title 2",
+    "Title 3" /* ... other titles for iPhone ... */,
+  ];
+  const iPadTitles = [
+    "Title A",
+    "Title B",
+    "Title C" /* ... other titles for iPad ... */,
+  ];
+  const appleWatchTitles = [
+    "Watch Title X",
+    "Watch Title Y",
+    "Watch Title Z" /* ... other titles for Apple Watch ... */,
+  ];
+
+  const iPhoneSizes = [
+    "Size 1",
+    "Size 2",
+    "Size 3" /* ... other sizes for iPhone ... */,
+  ];
+  const iPadSizes = [
+    "Size A",
+    "Size B",
+    "Size C" /* ... other sizes for iPad ... */,
+  ];
+  const appleWatchSizes = [
+    "Watch Size X",
+    "Watch Size Y",
+    "Watch Size Z" /* ... other sizes for Apple Watch ... */,
+  ];
 
   return (
     <div className="my-10" onClick={onClick}>
@@ -41,6 +77,9 @@ const SelectDevice = ({onClick}) => {
             showModal={showiPhoneModal}
             closeModal={closeiPhoneModal}
             placeholder="Search an iPhone ..."
+            images={iPhoneImage}
+            title={iPhoneTitles}
+            size={iPhoneSizes[0]}
           />
 
           <Modal
@@ -48,6 +87,9 @@ const SelectDevice = ({onClick}) => {
             showModal={showiPadModal}
             closeModal={closeiPadModal}
             placeholder="Search an iPad ..."
+            images={iPadImage}
+            title={iPadTitles[1]}
+            size={iPadSizes[1]}
           />
 
           <Modal
@@ -55,6 +97,9 @@ const SelectDevice = ({onClick}) => {
             showModal={showAppleWatchModal}
             closeModal={closeAppleWatchModal}
             placeholder="Search an Apple Watch ..."
+            images={appleWatchImage}
+            title={appleWatchTitles[2]}
+            size={appleWatchSizes[2]}
           />
         </div>
       </div>

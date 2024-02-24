@@ -18,9 +18,6 @@ function App({}) {
             element={
               <>
                 <Dashboard />
-                <Routes>
-                
-                </Routes>
               </>
             }
           />

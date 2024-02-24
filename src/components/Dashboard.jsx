@@ -1,6 +1,7 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import DashboardModal from "./DashboardModal.jsx";
+import { useLocation } from "react-router-dom";
 import {
   Bars3CenterLeftIcon,
   BellIcon,
@@ -24,49 +25,88 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
 
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "History", href: "#", icon: ClockIcon, current: false },
-  { name: "Balances", href: "#", icon: ScaleIcon, current: false },
-  { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
-  { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
-  { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
-];
-const secondaryNavigation = [
-  { name: "Settings", href: "#", icon: CogIcon },
-  { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
-  { name: "Privacy", href: "#", icon: ShieldCheckIcon },
-];
-
-const peoples = [
-  {
-    id: 1,
-    name: "Sadil",
-    email: "sadil@gmail.com",
-    phonenumber: "987654321",
-    href: "#",
-    amount: "$20,000",
-    currency: "USD",
-    status: "success",
-    date: "July 11, 2020",
-    datetime: "2020-07-11",
-  },
-];
-const statusStyles = {
-  success: "bg-green-100 text-green-800",
-  processing: "bg-yellow-100 text-yellow-800",
-  failed: "bg-gray-100 text-gray-800",
-};
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
+  const location = useLocation();
+  const parts = location.pathname.split("/");
+  const pageRoute = parts[1];
 
+  const navigationData = [
+    { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+    {
+      name: "History",
+      href: "history",
+      icon: ClockIcon,
+      current: false,
+    },
+    { name: "Balances", href: "#", icon: ScaleIcon, current: false },
+    { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
+    { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
+    { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
+  ];
+  const secondaryNavigation = [
+    { name: "Settings", href: "#", icon: CogIcon },
+    { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
+    { name: "Privacy", href: "#", icon: ShieldCheckIcon },
+  ];
+
+  const peoples = [
+    {
+      id: 1,
+      name: "Sadil",
+      email: "sadil@gmail.com",
+      phonenumber: "987654321",
+      href: "#",
+      amount: "$20,000",
+      currency: "USD",
+      status: "success",
+      date: "July 11, 2020",
+      datetime: "2020-07-11",
+    },
+  ];
+  const statusStyles = {
+    success: "bg-green-100 text-green-800",
+    processing: "bg-yellow-100 text-yellow-800",
+    failed: "bg-gray-100 text-gray-800",
+  };
+
+  const [navigation, setNavigation] = useState(null);
+
+  useEffect(() => {
+    const ndata = navigationData.map((item) => {
+      if (item.href === `/${pageRoute}`) {
+        item.current = true;
+        return item;
+      } else {
+        item.current = false;
+        return item;
+      }
+    });
+    setNavigation(ndata);
+  }, [pageRoute]);
+
+  const onClick = (item) => {
+    setNavigation((prev) => {
+      const data = prev.map((previtem) => {
+        if (previtem.name === item.name) {
+          previtem.current = true;
+        } else {
+          previtem.current = false;
+        }
+        return previtem;
+      });
+      return data;
+    });
+  };
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
+
   return (
     <>
       <div className="min-h-full">
@@ -137,25 +177,26 @@ export default function Example() {
                     aria-label="Sidebar"
                   >
                     <div className="space-y-1 px-2">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? "bg-cyan-800 text-white"
-                              : "text-cyan-100 hover:bg-cyan-600 hover:text-white",
-                            "group flex items-center rounded-md px-2 py-2 text-base font-medium"
-                          )}
-                          aria-current={item.current ? "page" : undefined}
-                        >
-                          <item.icon
-                            className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
-                            aria-hidden="true"
-                          />
-                          {item.name}
-                        </a>
-                      ))}
+                      {navigation &&
+                        navigation.map((item) => (
+                          <div key={item.name} onClick={() => onClick(item)}>
+                            <a
+                              href={item.href}
+                              className={classNames(
+                                item.current
+                                  ? "bg-gray-800 text-white "
+                                  : "text-gray-400 hover:text-white hover:bg-gray-800 ",
+                                "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold no-underline "
+                              )}
+                            >
+                              <item.icon
+                                className={`h-6 w-6 shrink-0 `}
+                                aria-hidden="true"
+                              />
+                              <div>{item.name}</div>
+                            </a>
+                          </div>
+                        ))}
                     </div>
                     <div className="mt-6 pt-6">
                       <div className="space-y-1 px-2">
@@ -202,25 +243,26 @@ export default function Example() {
               aria-label="Sidebar"
             >
               <div className="space-y-1 px-2">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-cyan-800 text-white"
-                        : "text-cyan-100 hover:bg-cyan-600 hover:text-white",
-                      "group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    <item.icon
-                      className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </a>
-                ))}
+                {navigation &&
+                  navigation.map((item) => (
+                    <div key={item.name} onClick={() => onClick(item)}>
+                      <a
+                        href={item.href}
+                        className={classNames(
+                          item.current
+                            ? "bg-gray-800 text-white "
+                            : "text-gray-400 hover:text-white hover:bg-gray-800 ",
+                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold no-underline "
+                        )}
+                      >
+                        <item.icon
+                          className={`h-6 w-6 shrink-0 `}
+                          aria-hidden="true"
+                        />
+                        <div>{item.name}</div>
+                      </a>
+                    </div>
+                  ))}
               </div>
               <div className="mt-6 pt-6">
                 <div className="space-y-1 px-2">
@@ -243,8 +285,8 @@ export default function Example() {
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col lg:pl-64">
-          <div className="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none">
+        <div className={` flex flex-1 flex-col lg:pl-64  `}>
+          <div className="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white  lg:border-none">
             <button
               type="button"
               className="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
