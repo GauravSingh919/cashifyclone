@@ -16,40 +16,79 @@ const SelectDevice = ({ onClick }) => {
   const openAppleWatchModal = () => setShowAppleWatchModal(true);
   const closeAppleWatchModal = () => setShowAppleWatchModal(false);
 
-  const iPhoneImage = "/product/phone_1.jpg";
-  const iPadImage = "/product/ipad_1.jpg";
-  const appleWatchImage = "/product/iwatch_1.jpg";
-
-  const iPhoneTitles = [
-    "Title 1",
-    "Title 2",
-    "Title 3" /* ... other titles for iPhone ... */,
+  const iPhoneImage = [
+    "/product/phone_1.jpg",
+    "/product/phone_1.jpg",
+    "/product/phone_1.jpg",
+    "/product/phone_1.jpg",
+    "/product/phone_1.jpg",
+    "/product/phone_1.jpg",
   ];
+  const iPadImage = [
+    "/product/ipad_1.jpg",
+    "/product/ipad_1.jpg",
+    "/product/ipad_1.jpg",
+    "/product/ipad_1.jpg",
+    "/product/ipad_1.jpg",
+    "/product/ipad_1.jpg",
+  ];
+  const appleWatchImage = [
+    "/product/iwatch_1.jpg",
+    "/product/iwatch_1.jpg",
+    "/product/iwatch_1.jpg",
+    "/product/iwatch_1.jpg",
+    "/product/iwatch_1.jpg",
+    "/product/iwatch_1.jpg",
+  ];
+
   const iPadTitles = [
-    "Title A",
-    "Title B",
-    "Title C" /* ... other titles for iPad ... */,
+    "iPad Pro (12.9-inch, 5th generation)",
+    "iPad Air (4th generation)",
+    "iPad (9th generation)",
+    "iPad Pro (12.9-inch, 5th generation)",
+    "iPad Air (4th generation)",
+    "iPad (9th generation)",
+  ];
+  const iPhoneTitles = [
+    "iPhone 14 Pro Max",
+    "iPhone 13 Pro Max",
+    "iPhone 11 Pro Max",
+    "iPhone 14 Pro Max",
+    "iPhone 13 Pro Max",
+    "iPhone 11 Pro Max",
   ];
   const appleWatchTitles = [
-    "Watch Title X",
-    "Watch Title Y",
-    "Watch Title Z" /* ... other titles for Apple Watch ... */,
+    "Apple Watch Series 7",
+    "Apple Watch SE",
+    "Apple Watch Series 6",
+    "Apple Watch Series 7",
+    "Apple Watch SE",
+    "Apple Watch Series 6",
   ];
 
   const iPhoneSizes = [
-    "Size 1",
-    "Size 2",
-    "Size 3" /* ... other sizes for iPhone ... */,
+    "Variant: 128GB, 256GB, 512GB",
+    "Variant: 64GB, 128GB, 256GB",
+    "Variant: 64GB, 128GB, 256GB",
+    "Variant: 128GB, 256GB, 512GB",
+    "Variant: 64GB, 128GB, 256GB",
+    "Variant: 64GB, 128GB, 256GB",
   ];
   const iPadSizes = [
-    "Size A",
-    "Size B",
-    "Size C" /* ... other sizes for iPad ... */,
+    "Variant: 128GB, 256GB, 512GB, 1TB",
+    "Variant: 64GB, 256GB",
+    "Variant: 64GB, 256GB",
+    "Variant: 128GB, 256GB, 512GB, 1TB",
+    "Variant: 64GB, 256GB",
+    "Variant: 64GB, 256GB",
   ];
   const appleWatchSizes = [
-    "Watch Size X",
-    "Watch Size Y",
-    "Watch Size Z" /* ... other sizes for Apple Watch ... */,
+    "Variant: Aluminum, Stainless Steel, Titanium Size: 41mm, 45mm",
+    "Variant: Aluminum Size: 40mm, 44mm",
+    "Variant: Aluminum, Stainless Steel, Titanium Size: 40mm, 44mm",
+    "Variant: Aluminum, Stainless Steel, Titanium Size: 41mm, 45mm",
+    "Variant: Aluminum Size: 40mm, 44mm",
+    "Variant: Aluminum, Stainless Steel, Titanium Size: 40mm, 44mm",
   ];
 
   return (
@@ -78,8 +117,8 @@ const SelectDevice = ({ onClick }) => {
             closeModal={closeiPhoneModal}
             placeholder="Search an iPhone ..."
             images={iPhoneImage}
-            title={iPhoneTitles}
-            size={iPhoneSizes[0]}
+            titles={iPhoneTitles}
+            sizes={iPhoneSizes}
           />
 
           <Modal
@@ -88,8 +127,8 @@ const SelectDevice = ({ onClick }) => {
             closeModal={closeiPadModal}
             placeholder="Search an iPad ..."
             images={iPadImage}
-            title={iPadTitles[1]}
-            size={iPadSizes[1]}
+            titles={iPadTitles}
+            sizes={iPadSizes}
           />
 
           <Modal
@@ -98,8 +137,8 @@ const SelectDevice = ({ onClick }) => {
             closeModal={closeAppleWatchModal}
             placeholder="Search an Apple Watch ..."
             images={appleWatchImage}
-            title={appleWatchTitles[2]}
-            size={appleWatchSizes[2]}
+            titles={appleWatchTitles}
+            sizes={appleWatchSizes}
           />
         </div>
       </div>

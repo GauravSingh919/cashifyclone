@@ -6,6 +6,7 @@ import Select from "../components/SelectDevice.jsx";
 import Faqs from "../components/faqs.jsx";
 import Reviews from "../components/reviews.jsx";
 import Location from "../components/location.jsx";
+import Loader from '../components/Loader';
 import SelectDevice from "../components/SelectDevice.jsx";
 import Footer from "../components/footer.jsx";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -15,6 +16,18 @@ import { Link } from "react-router-dom";
 const User = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectClicked, setSelectClicked] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -57,37 +70,43 @@ const User = () => {
   )}`;
 
   return (
-    <div className="project">
-      <Carousel slides={slides} />
-      <ProductSample />
-      <MultiForm />
-      <Select onClick={handleSelectClick} />
-      <Sell />
-      {/* <Forms /> */}
-      <Faqs />
-      <Reviews />
-      <Location />
-      <Footer />
-      <Link to={whatsappLink} target="_blank" rel="noopener noreferrer">
-        <div className="fixed bottom-5 right-5">
-          <IoLogoWhatsapp className="text-green-500 bg-white text-5xl cursor-pointer" />
-        </div>
-      </Link>
-      {showPopup && (
-        <div className="popup-modal">
-          <div className="modal-content ">
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity " />
-
-            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-[24rem] md:w-auto  md:p-8 border border-gray-300 shadow-md z-50 ">
-              <SelectDevice />
-              <button
-                className="absolute top-4 right-4 p-2 text-gray-500"
-                onClick={handleClosePopup}
-              >
-                <XMarkIcon className="w-8" />
-              </button>
+    <div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="project">
+          <Carousel slides={slides} />
+          {/* <ProductSample /> */}
+          <MultiForm />
+          <Select onClick={handleSelectClick} />
+          <Sell />
+          {/* <Forms /> */}
+          <Faqs />
+          <Reviews />
+          <Location />
+          <Footer />
+          <Link to={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <div className="fixed bottom-5 right-5">
+              <IoLogoWhatsapp className="text-green-500 bg-white text-5xl cursor-pointer" />
             </div>
-          </div>
+          </Link>
+          {showPopup && (
+            <div className="popup-modal">
+              <div className="modal-content ">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity " />
+
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-[24rem] md:w-auto  md:p-8 border border-gray-300 shadow-md z-50 ">
+                  <SelectDevice />
+                  <button
+                    className="absolute top-4 right-4 p-2 text-gray-500"
+                    onClick={handleClosePopup}
+                  >
+                    <XMarkIcon className="w-8" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

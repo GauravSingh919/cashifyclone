@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
+import { useFormik } from "formik";
+
 export function UserForm() {
-  const [value, setValue] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+    },
+    validate: (values) => {
+      const errors = {};
 
-  const handleChange = (event) => {
-    // Allow only numeric characters (0-9)
-    const inputValue = event.target.value;
-    const regex = /^[0-9]*$/;
+      if (!values.name.trim()) {
+        errors.name = "Name is required";
+      }
 
-    if (regex.test(inputValue)) {
-      setValue(inputValue);
-    }
-  };
+      if (!values.email.trim()) {
+        errors.email = "Email is required";
+      } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+        errors.email = "Invalid email format";
+      }
+
+      if (!values.phone.trim()) {
+        errors.phone = "Phone number is required";
+      }
+
+      return errors;
+    },
+    onSubmit: (values) => {
+      // Your form submission logic here
+      console.log("Form submitted:", values);
+    },
+  });
+
   return (
     <div className="px-2 md:px-0">
       <fieldset>
@@ -20,61 +42,85 @@ export function UserForm() {
         <p className="mt-1 text-sm leading-6 text-gray-600">
           Write about yourself
         </p>
-        <div className="mt-6 space-y-6">
-          <div className="flex flex-col  ">
+        <form onSubmit={formik.handleSubmit} className="mt-6 space-y-6">
+          <div className="flex flex-col">
             <label
               htmlFor="name"
-              className="block text-sm font-medium leading-6 text-gray-900 "
+              className="block text-sm font-medium leading-6 text-gray-900 text-left"
             >
               Name
             </label>
             <input
               id="name"
-              name="push-notifications"
-              type="textbox"
+              type="text"
+              {...formik.getFieldProps("name")}
               placeholder="Enter a name"
               required
               autoFocus
-              className="w-full border-gray-100 text-black outline-none ring-1 py-2 focus:ring-indigo-600 border rounded px-2"
+              className={`${
+                formik.errors.name && formik.touched.name
+                  ? "border-red-500"
+                  : ""
+              } placeholder:text-sm placeholder:font-normal w-full py-1.5 border-gray-100 text-black text-sm font-normal outline-none ring-1 focus:ring-indigo-600 border rounded px-2`}
             />
+            {formik.errors.name && formik.touched.name && (
+              <p className="text-red-500 text-xs mt-1">{formik.errors.name}</p>
+            )}
           </div>
-          <div className="flex flex-col  ">
+          <div className="flex flex-col">
             <label
-              htmlFor="emaill"
-              className="block text-sm font-medium leading-6 text-gray-900 "
+              htmlFor="email"
+              className="block text-sm font-medium leading-6 text-gray-900 text-left"
             >
               Email
             </label>
             <input
-              id="emaill"
-              name="push-notifications"
-              type="textbox"
-              placeholder="Enter a email address"
+              id="email"
+              type="email"
+              {...formik.getFieldProps("email")}
+              placeholder="Enter an email address"
               required
-              autoFocus
-              className="w-full border-gray-100 text-black outline-none ring-1 py-2 focus:ring-indigo-600 border rounded px-2"
+              className={`${
+                formik.errors.email && formik.touched.email
+                  ? "border-red-500"
+                  : ""
+              } placeholder:text-sm placeholder:font-normal w-full py-1.5 border-gray-100 text-black text-sm font-normal outline-none ring-1 focus:ring-indigo-600 border rounded px-2`}
             />
+            {formik.errors.email && formik.touched.email && (
+              <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
+            )}
           </div>
-          <div className="flex flex-col  ">
+          <div className="flex flex-col">
             <label
               htmlFor="phone"
-              className="block text-sm font-medium leading-6 text-gray-900 "
+              className="block text-sm font-medium leading-6 text-gray-900 text-left"
             >
               Phone Number
             </label>
             <input
-              id="name"
-              name="push-notifications"
+              id="phone"
               type="text"
-              value={value}
-              onChange={handleChange}
+              {...formik.getFieldProps("phone")}
               placeholder="Enter a phone number"
               required
-              autoFocus
-              className="w-full border-gray-100 text-black outline-none py-2 ring-1 focus:ring-indigo-600 border rounded px-2"
+              className={`${
+                formik.errors.phone && formik.touched.phone
+                  ? "border-red-500"
+                  : ""
+              } placeholder:text-sm placeholder:font-normal w-full border-gray-100 text-black text-sm font-normal outline-none py-1.5 ring-1 focus:ring-indigo-600 border rounded px-2`}
             />
+            {formik.errors.phone && formik.touched.phone && (
+              <p className="text-red-500 text-xs mt-1">{formik.errors.phone}</p>
+            )}
           </div>
-        </div>
+
+          <button
+            type="submit"
+            className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
+          >
+            Submit
+          </button>
+        </form>
       </fieldset>
     </div>
   );

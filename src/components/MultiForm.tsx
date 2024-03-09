@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import { useMultistepForm } from "./useMultistepForm.ts";
 import { ConditionForm } from "./ConditionForm.jsx";
 import { CarrierForm } from "./CarrierForm.jsx";
@@ -8,15 +8,16 @@ import { AccessoriesForm } from "./AccessoriesForm.jsx";
 import { UserForm } from "./UserForm.jsx";
 import { PriceForm } from "./PriceForm.jsx";
 import Steps from "./Steps.jsx";
+import AlertBox from "./AlertBox.jsx";
 
 function MultiForm() {
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
     useMultistepForm([
-      <ConditionForm />,
       <CarrierForm />,
+      <ConditionForm />,
       <StorageForm />,
-      <OperationalForm />,
-      <AccessoriesForm />,
+      // <OperationalForm />,
+      // <AccessoriesForm />,
       <UserForm />,
       <PriceForm />,
     ]);
@@ -24,17 +25,21 @@ function MultiForm() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     next();
+
+    if (isLastStep) {
+      alert("Form Filled Successfully");
+    }
   }
 
   return (
     <div className="bg-gradient-to-r from-black to-gray-800 p-10 md:p-0">
       <div className="flex flex-col container mx-auto lg:p-7" id="forms">
-        <div className="flex flex-col md:flex-row px-3">
+        <div className="flex flex-col lg:flex-row px-3">
           {" "}
           <div className="md:basis-2/4 ">
             <Steps />
           </div>{" "}
-          <div className="md:basis-2/4 md:mt-10">
+          <div className="md:basis-2/4 lg:mt-10">
             <div className="flex flex-col  items-center ">
               <div className="flex">
                 <div className="font-bold  md:text-2xl text-gray-500  mt-3 md:mt-10">
@@ -55,7 +60,10 @@ function MultiForm() {
                     {currentStepIndex + 1} / {steps.length}{" "}
                   </div>
                   {step}
-
+                  <div className="mt-3 text-sm">
+                    {isLastStep ? "" : "The current value of the phone :"}
+                    <span> {isLastStep ? "" : "Value"}</span>
+                  </div>
                   <div className="flex mt-[1rem] gap-[1rem] justify-end ">
                     {!isFirstStep && (
                       <button

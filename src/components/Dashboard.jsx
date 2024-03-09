@@ -33,10 +33,15 @@ export default function Example() {
   const pageRoute = parts[1];
 
   const navigationData = [
-    { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+    {
+      name: "Dashboard",
+      href: "/admin/dashboard",
+      icon: HomeIcon,
+      current: true,
+    },
     {
       name: "History",
-      href: "history",
+      href: "/admin/history",
       icon: ClockIcon,
       current: false,
     },

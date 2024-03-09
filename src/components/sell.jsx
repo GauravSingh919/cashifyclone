@@ -36,30 +36,30 @@ const sell = () => {
         </div>
       </div>
 
-      <div className="flex justify-center md:hidden  w-screen">
-        <div className="p-16 bg-blue-300 ">
+      <div className="flex justify-center items-center md:hidden  ">
+        <div className="p-20 bg-blue-300 w-full">
           <div className="mobile12">
-            <div >
+            <div className="flex justify-center items-center">
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/quick_and_easy_quotes_sell.webp"
                 alt=""
                 className=""
               />
-              <div className="my-5">
-                <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />
-              </div>
             </div>
-            <div>
+            <div className="my-5 flex justify-center">
+              <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />
+            </div>
+            <div className="flex justify-center items-center">
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/assured_pickup_24hrs_sell.webp"
                 alt="mobile13"
                 className=""
               />
-              <div className="my-5">
-                <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />
-              </div>
             </div>
-            <div>
+            <div className="my-5 flex justify-center">
+              <ChevronDoubleDownIcon className="w-32 text-yellow-200 mx-auto" />
+            </div>
+            <div className="flex justify-center items-center">
               <img
                 src="https://www.quickmobile.in/assets/images/sellphone_imgs/instant_cash_sell.webp"
                 alt="mobile14"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 export default function Admin() {
   const [formData, setFormData] = useState({
     email: "",
@@ -44,6 +44,10 @@ export default function Admin() {
     }
   };
 
+  const handleButtonClick = () => {
+    // Navigate to the AdminDashboard page
+    window.location.href = "/admin/admindashboard";
+  };
   return (
     <>
       <div>
@@ -155,14 +159,13 @@ export default function Admin() {
                   </div>
 
                   <div>
-                    <Link to="/admin/dashboard">
-                      <button
-                        type="submit"
-                        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                      >
-                        Login
-                      </button>
-                    </Link>
+                    <button
+                      type="button"
+                      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={handleButtonClick}
+                    >
+                      Login
+                    </button>
                   </div>
                 </form>
               </div>

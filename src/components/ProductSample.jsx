@@ -43,15 +43,17 @@ const ProductSample = () => {
           Store. The best way to sell the <br /> products you love.
         </div>
         <div className="mt-6">
-          <div className="grid grid-cols-3 lg:grid-cols-5 items-center gap-4 md:gap-3 animate__animated animate__bounceInUp">
+          <div className="grid grid-cols-3 lg:grid-cols-5 items-center gap-4 md:gap-3 animate__animated animate__backInLeft">
             {categories.map((category, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="text-lg text-black font-bold">{category.name}</div>
+                <div className="text-lg text-black font-bold">
+                  {category.name}
+                </div>
                 <div>
                   <img
                     src={category.imageUrl}
                     alt="imagessss"
-                    className="shadow- p-4 hover:p-7 hover:duration-700 duration-700"
+                    className=" p-4 hover:p-7 hover:duration-700 duration-700"
                     width={200}
                     height={130}
                   />

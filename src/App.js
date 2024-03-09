@@ -1,9 +1,13 @@
 import React from "react";
 // import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Admin from "./pages/Admin.js";
-import Dashboard from "./components/Dashboard.jsx";
 import User from "./pages/User.js";
+import AdminLogin from "../src/components/AdminLogin.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
+import History from "./pages/History.jsx";
+import Forms from "./pages/Forms.jsx";
+import DeviceList from "./pages/DeviceList.jsx";
+import Appointments from "./pages/Appointments.jsx";
 
 function App({}) {
   // Router
@@ -12,12 +16,44 @@ function App({}) {
       <Router>
         <Routes>
           <Route path="/" element={<User />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<AdminLogin />} />
           <Route
             path="/admin/*"
             element={
               <>
-                <Dashboard />
+                <AdminDashboard />
+              </>
+            }
+          />
+          <Route
+            path="/admin/history"
+            element={
+              <>
+                <History />
+              </>
+            }
+          />
+          <Route
+            path="/admin/device-list"
+            element={
+              <>
+                <DeviceList />
+              </>
+            }
+          />
+          <Route
+            path="/admin/forms"
+            element={
+              <>
+                <Forms />
+              </>
+            }
+          />
+          <Route
+            path="/admin/appointments"
+            element={
+              <>
+                <Appointments />
               </>
             }
           />
